@@ -8,4 +8,4 @@ WebSpark test task.
 
 ## Preview
 
-![image](https://imgur.com/RgZDAoq)
+![image](https://img.techpowerup.org/200819/pew.jpg)
