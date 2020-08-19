@@ -79,4 +79,6 @@ console.log(mindBlow(['.X..', '.X..', '....'], 2, 0, 0, 3));
 // . X . . < - end
 // . X . .
 // . . . .
+
+// returns 4
 console.log(mindBlow(['.X..', '.X..', '....'], 0, 0, 0, 3));
