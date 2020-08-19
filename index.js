@@ -16,7 +16,7 @@ const mindBlow = (grid, startX, startY, endX, endY) => {
 
     // result found
     if (stepX === endX && stepY === endY) {
-      console.log('BINGO!');
+      // console.log('BINGO!');
       result.push(steps);
       return;
     }
