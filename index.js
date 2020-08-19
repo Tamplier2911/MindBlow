@@ -1,4 +1,4 @@
-function mindBlow(grid, startX, startY, endX, endY) {
+const mindBlow = (grid, startX, startY, endX, endY) => {
   // rebuild the grid as a matrix (since cannot modify primitive values)
   grid = grid.map((str) => [...str]);
 
@@ -66,7 +66,7 @@ function mindBlow(grid, startX, startY, endX, endY) {
 
   // return minial steps required to reach position
   return Math.min(...result);
-}
+};
 
 // . X . < - end
 // . X .
@@ -94,3 +94,12 @@ console.log(mindBlow(['.X..', '.X..', '....'], 2, 0, 0, 3));
 
 // returns 4
 console.log(mindBlow(['.X..', '.X..', '....'], 0, 0, 0, 3));
+
+//   start
+//  /
+// . X . X . X . < - end
+// . X . X . X .
+// . . . . X . .
+
+// returns 8
+console.log(mindBlow(['.X.X.X.', '.X.X.X.', '....X..'], 0, 0, 0, 6));
