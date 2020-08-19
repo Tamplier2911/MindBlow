@@ -8,7 +8,7 @@ function mindBlow(grid, startX, startY, endX, endY) {
   // stepIn is going to be our stepper
   // that going to perform movements in all directions
   // marking certain steps as false aka visited
-  // once we reach endpoint we do want to store result in array
+  // once we reach endpoint we do want to store result in result array
   const stepIn = (grid, stepX, stepY, steps = 0) => {
     // base cases
     if (!grid[stepX]) return;
@@ -21,7 +21,19 @@ function mindBlow(grid, startX, startY, endX, endY) {
       return;
     }
 
-    // mark position as visited to avoid endless iteration
+    // i decide to add this modification to count ALL possible ways
+    // to reach end point, now i no longer mutate initially given grid,
+    // but creating new grid for each step of eight steps i take.
+
+    // i understand, that this is by far not perfect solution and each
+    // recursion call will increase time complexity exponentially
+    // in worst worse each stepper call will make another 8 calls
+    // creating another 8 grids respectively
+
+    // deep cloning initial grid
+    grid = JSON.parse(JSON.stringify(grid));
+
+    // mark current position as visited to avoid endless iteration
     grid[stepX][stepY] = false;
 
     // 2 -x, 1 -y
