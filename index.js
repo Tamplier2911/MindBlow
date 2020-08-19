@@ -27,7 +27,7 @@ function mindBlow(grid, startX, startY, endX, endY) {
 
     // i understand, that this is by far not perfect solution and each
     // recursion call will increase time complexity exponentially
-    // in worst worse each stepper call will make another 8 calls
+    // in worst case each stepper call will make another 8 calls
     // creating another 8 grids respectively
 
     // deep cloning initial grid
@@ -38,9 +38,9 @@ function mindBlow(grid, startX, startY, endX, endY) {
 
     // 2 -x, 1 -y
     /*[
-        '.X.',
-        '.X.',
-        '...'
+        ['.','X','.'],
+        ['.','X','.'],
+        ['.',false,'.']
     ]*/
 
     // step diagonally top right
