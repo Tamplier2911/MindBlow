@@ -3,7 +3,10 @@ const mindBlow = (grid, startX, startY, endX, endY) => {
   grid = grid.map((str) => [...str]);
 
   // create a collection to store results
-  const result = [];
+  // const result = [];
+
+  // no need collection if we not collecting values
+  let minResultVal = Infinity;
 
   // stepIn is going to be our stepper
   // that going to perform movements in all directions
@@ -17,7 +20,8 @@ const mindBlow = (grid, startX, startY, endX, endY) => {
     // result found
     if (stepX === endX && stepY === endY) {
       // console.log('BINGO!');
-      result.push(steps);
+      // result.push(steps);
+      minResultVal = Math.min(minResultVal, steps);
       return;
     }
 
@@ -26,7 +30,8 @@ const mindBlow = (grid, startX, startY, endX, endY) => {
     // i could reduce amount of stack frames comparing steps with max value
     // i get from current result, filtering out unnecessary values
     // and that is what i end up with
-    const minResultVal = Math.min(...result);
+
+    // const minResultVal = Math.min(...result);
     if (steps >= minResultVal) return;
 
     // and here is measure optimization i achieved:
@@ -88,7 +93,8 @@ const mindBlow = (grid, startX, startY, endX, endY) => {
   stepIn(grid, startX, startY);
 
   // return minial steps required to reach position
-  return Math.min(...result);
+  // return Math.min(...result);
+  return minResultVal;
 };
 
 // . X . < - end
