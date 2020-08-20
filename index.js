@@ -21,6 +21,29 @@ const mindBlow = (grid, startX, startY, endX, endY) => {
       return;
     }
 
+    /* 20.08 4:30*/
+    // so i thought, what if i don't need to know ALL posible ways, what if
+    // i could reduce amount of stack frames comparing steps with max value
+    // i get from current result, filtering out unnecessary values
+    // and that is what i end up with
+    const minResultVal = Math.min(...result);
+    if (steps >= minResultVal) return;
+
+    // and here is measure optimization i achieved:
+
+    // PRE OPTIMIZATION
+    // case 1 - 11 iterations - return 2
+    // case 2 - 125 iterations - return 3
+    // case 3 - 124 iterations - return 4
+    // case 4 - 88 iterations - return 8
+
+    // POST OPTIMIZATION
+    // case 1 - 5 iterations - return 2
+    // case 2 - 8 iterations - return 3
+    // case 3 - 8 iterations - return 4
+    // case 4 - 56 iterations - return 8
+
+    /* 19.08 20:00*/
     // i decide to add this modification to count ALL possible ways
     // to reach end point, now i no longer mutate initially given grid,
     // but creating new grid for each step of eight steps i take.
